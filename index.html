@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BizZap - Automação para Microempresas</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <header class="parallax">
+    <div class="floating-shapes">
+      <div class="shape" style="width: 100px; height: 100px; top: 20%; left: 10%;"></div>
+      <div class="shape" style="width: 80px; height: 80px; top: 60%; right: 15%;"></div>
+    </div>
+    <div class="container">
+      <!-- Espaço para a Logo -->
+      <div class="logo">
+        <img src="logo-placeholder.png" alt="Logo BizZap">
+      </div>
+      <h1>Automatize Seu Negócio com BizZap!</h1>
+      <p class="subtitle">Soluções inteligentes para microempresas, simplificando seu dia a dia.</p>
+      <a href="#" class="cta-button">Comece Grátis Agora</a>
+    </div>
+  </header>
+
+  <section class="benefits">
+    <div class="container">
+      <h2>Por que o BizZap é ideal para você</h2>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>Mensagens Automatizadas</h3>
+          <p>Envie comunicações rápidas via WhatsApp.</p>
+        </div>
+        <div class="benefit-item">
+          <i class="fas fa-chart-line"></i>
+          <h3>Previsão de Estoque</h3>
+          <p>Insights preditivos para uma gestão eficaz.</p>
+        </div>
+        <div class="benefit-item">
+          <i class="fas fa-robot"></i>
+          <h3>Atendimento com IA</h3>
+          <p>Chatbot inteligente para suporte 24/7.</p>
+        </div>
+        <div class="benefit-item">
+          <i class="fas fa-database"></i>
+          <h3>Integração de Dados</h3>
+          <p>Centralize informações e otimize decisões.</p>
+        </div>
+        <div class="benefit-item">
+          <i class="fas fa-headset"></i>
+          <h3>Suporte Dedicado</h3>
+          <p>Apoio contínuo para maximizar seus resultados.</p>
+        </div>
+        <div class="benefit-item">
+          <i class="fas fa-laptop-code"></i>
+          <h3>Interface Intuitiva</h3>
+          <p>Design minimalista e de fácil navegação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Barra de progresso do scroll
+    window.addEventListener('scroll', () => {
+      const scrollProgress = document.getElementById('scroll-progress');
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (window.scrollY / windowHeight) * 100;
+      scrollProgress.style.width = scrolled + '%';
+    });
+
+    // Animação dos itens de benefícios
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    });
+    document.querySelectorAll('.benefit-item').forEach((el) => {
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(30px)';
+      observer.observe(el);
+    });
+  </script>
+</body>
+<footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <!-- Branding -->
+        <div class="footer-branding">
+          <img src="imagens/logo.png" alt="Logo BizZap" class="footer-logo">
+          <p class="footer-tagline">Automatize seu negócio com inteligência.</p>
+        </div>
+        
+        <!-- Links Úteis -->
+        <div class="footer-links">
+          <a href="#">Termos de Uso</a>
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Contato</a>
+        </div>
+        
+        <!-- Ícones Sociais -->
+        <div class="social-links">
+          <a href="#" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+          <a href="#" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
+        </div>
+        
+        <!-- Créditos -->
+        <div class="footer-credit">
+          <p>© 2024 BizZap. Todos os direitos reservados. Desenvolvido por <a href="https://github.com/KymDev" class="credit-link" target="_blank">KymDev</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+</html>
