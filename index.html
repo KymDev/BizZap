@@ -9,8 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Barra de Progresso do Scroll -->
   <div class="scroll-progress" id="scroll-progress"></div>
 
+  <!-- Cabeçalho com efeito Parallax -->
   <header class="parallax">
     <div class="floating-shapes">
       <div class="shape" style="width: 100px; height: 100px; top: 20%; left: 10%;"></div>
@@ -23,10 +25,25 @@
       </div>
       <h1>Automatize Seu Negócio com BizZap!</h1>
       <p class="subtitle">Soluções inteligentes para microempresas, simplificando seu dia a dia.</p>
-      <a href="#" class="cta-button">Comece Grátis Agora</a>
+      <a href="cadastro.html" class="cta-button">Cadastre-se Agora</a>
     </div>
   </header>
 
+  <!-- Seção de Navegação para as Páginas -->
+  <section class="links-pages">
+    <div class="container">
+      <h2>Navegue pelo Site</h2>
+      <nav class="pages-nav">
+        <ul>
+          <li><a href="pages/login.html">Login</a></li>
+          <li><a href="pages/dashboard.html">Dashboard</a></li>
+          <li><a href="pages/sobre.html">Sobre</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Seção de Benefícios -->
   <section class="benefits">
     <div class="container">
       <h2>Por que o BizZap é ideal para você</h2>
@@ -65,8 +82,9 @@
     </div>
   </section>
 
+  <!-- Scripts de Interatividade -->
   <script>
-    // Barra de progresso do scroll
+    // Atualiza a barra de progresso conforme o scroll
     window.addEventListener('scroll', () => {
       const scrollProgress = document.getElementById('scroll-progress');
       const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -74,10 +92,10 @@
       scrollProgress.style.width = scrolled + '%';
     });
 
-    // Animação dos itens de benefícios
+    // Animação dos itens da seção de benefícios
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if(entry.isIntersecting) {
+        if (entry.isIntersecting) {
           entry.target.style.opacity = 1;
           entry.target.style.transform = 'translateY(0)';
         }
@@ -89,8 +107,9 @@
       observer.observe(el);
     });
   </script>
-</body>
-<footer class="site-footer">
+
+  <!-- Rodapé -->
+  <footer class="site-footer">
     <div class="container">
       <div class="footer-content">
         <!-- Branding -->
@@ -98,21 +117,18 @@
           <img src="imagens/logo2.png" alt="Logo BizZap" class="footer-logo">
           <p class="footer-tagline">Automatize seu negócio com inteligência.</p>
         </div>
-        
         <!-- Links Úteis -->
         <div class="footer-links">
           <a href="#">Termos de Uso</a>
           <a href="#">Política de Privacidade</a>
           <a href="#">Contato</a>
         </div>
-        
         <!-- Ícones Sociais -->
         <div class="social-links">
           <a href="#" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
           <a href="#" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
           <a href="#" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
         </div>
-        
         <!-- Créditos -->
         <div class="footer-credit">
           <p>© 2024 BizZap. Todos os direitos reservados. Desenvolvido por <a href="https://github.com/KymDev" class="credit-link" target="_blank">KymDev</a></p>
@@ -120,5 +136,5 @@
       </div>
     </div>
   </footer>
-  
+</body>
 </html>
