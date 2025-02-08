@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - BizZap</title>
+  <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Cadastro</h1>
+    <form id="cadastroForm">
+      <label for="nome">Nome Completo</label>
+      <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+
+      <label for="telefone">Telefone</label>
+      <input type="tel" id="telefone" name="telefone" pattern="[0-9]{10,11}" placeholder="Ex: 11987654321" required>
+
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required>
+
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" name="senha" placeholder="Mínimo 6 caracteres" minlength="6" required>
+
+      <label for="confirmarSenha">Confirmar Senha</label>
+      <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Repita sua senha" required>
+
+      <button type="submit" id="prosseguirBtn" disabled>Prosseguir</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const form = document.getElementById("cadastroForm");
+      const nome = document.getElementById("nome");
+      const telefone = document.getElementById("telefone");
+      const email = document.getElementById("email");
+      const senha = document.getElementById("senha");
+      const confirmarSenha = document.getElementById("confirmarSenha");
+      const prosseguirBtn = document.getElementById("prosseguirBtn");
+
+      function validateForm() {
+        // Se o formulário é válido e as senhas coincidem, habilita o botão
+        if (form.checkValidity() && senha.value === confirmarSenha.value) {
+          prosseguirBtn.disabled = false;
+        } else {
+          prosseguirBtn.disabled = true;
+        }
+      }
+
+      form.addEventListener("input", validateForm);
+
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        if (senha.value !== confirmarSenha.value) {
+          alert("As senhas não coincidem!");
+          return;
+        }
+        // Armazena dados básicos (opcional, para uso na página de pagamento)
+        localStorage.setItem("nome", nome.value);
+        localStorage.setItem("telefone", telefone.value);
+        localStorage.setItem("email", email.value);
+
+        // Redireciona para a página de pagamento
+        window.location.href = "../pages/pagamento.html";
+      });
+    });
+  </script>
+</body>
+</html>

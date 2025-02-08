@@ -260,7 +260,14 @@
   
   .footer-logo {
     max-width: 100px;
+    margin-top: 1px;
     margin-bottom: 30px;
+    height: auto;
+    background-color: transparent;
+    border-radius: 100px;
+    box-shadow: inset 1px 1px 10px rgba(255, 255, 255, 0.3),
+                inset -1px -1px 10px rgba(114, 114, 113, 0.3);
+    transition: box-shadow 0.3s ease;
   }
   
   .footer-tagline {
